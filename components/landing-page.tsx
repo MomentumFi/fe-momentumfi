@@ -83,7 +83,6 @@ export function LandingPage() {
                 <Zap className="h-4 w-4 text-white" />
               </div>
             </div>
-
             <h1 className="text-6xl sm:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
                 MomentumFi
