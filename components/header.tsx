@@ -40,7 +40,21 @@ export const HeroHeader = () => {
                                 href="/"
                                 aria-label="home"
                                 className="flex items-center space-x-2">
-                                <Logo />
+                                {/* <Logo /> */}
+                                <div className="flex items-center space-x-3">
+                                    <div className="relative">
+                                        <div className="w-12 h-12 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                                            <span className="text-white font-bold text-lg">M</span>
+                                        </div>
+                                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div>
+                                        <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 bg-clip-text text-transparent">
+                                            MomentumFi
+                                        </span>
+                                        <p className="text-xs text-gray-500 -mt-1">AI-Powered DeFi</p>
+                                    </div>
+                                </div>
                             </Link>
 
                             <button
@@ -51,7 +65,7 @@ export const HeroHeader = () => {
                                 <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
                             </button>
 
-                            <div className="hidden lg:block">
+                            {/* <div className="hidden lg:block">
                                 <ul className="flex gap-8 text-sm">
                                     {menuItems.map((item, index) => (
                                         <li key={index}>
@@ -63,11 +77,11 @@ export const HeroHeader = () => {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
-                            <div className="lg:hidden">
+                            {/* <div className="lg:hidden">
                                 <ul className="space-y-6 text-base">
                                     {menuItems.map((item, index) => (
                                         <li key={index}>
@@ -79,7 +93,7 @@ export const HeroHeader = () => {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */}
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                                 <Button
                                     asChild
