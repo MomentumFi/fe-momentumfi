@@ -13,6 +13,8 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import LogoCloud from './logo-cloud'
 import StatsSection from './stats'
+import HeroScrollDemo from '@/components/container-scroll'
+import HoverBorderGradientDemo from '@/components/hoverBorderGradientDemo'
 
 
 export default function HeroSection() {
@@ -203,12 +205,10 @@ export default function HeroSection() {
                                         AI-powered portfolio optimization with Chain Fusion & OpenAI
                                     </p>
                                 </div>
-
                                 <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row">
                                     <Button asChild size="lg" className="px-5 text-base rounded-full">
                                         <Link href="/dashboard">
-                                            <span className="text-nowrap">Launch App</span>
-                                            <ArrowRight className="ml-2 h-5 w-5" />
+                                            <HoverBorderGradientDemo />
                                         </Link>
                                     </Button>
                                     <Button
@@ -242,6 +242,7 @@ export default function HeroSection() {
                         </div>
                     </div> */}
                     <StatsSection />
+                    <HeroScrollDemo />
 
                 </section>
                 {/* <LogoCloud /> */}
