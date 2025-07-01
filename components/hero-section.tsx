@@ -11,6 +11,8 @@ import { ExternalLink, ArrowRight } from "lucide-react"
 import { Zap } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import LogoCloud from './logo-cloud'
+import StatsSection from './stats'
 
 
 export default function HeroSection() {
@@ -129,8 +131,26 @@ export default function HeroSection() {
         <>
             <HeroHeader />
             <main className="overflow-x-hidden">
-                <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
                 <section>
+                    <canvas ref={canvasRef} className="
+                    absolute inset-0 w-full h-full 
+                    z-[-1] pointer-events-none
+                    bg-gradient-to-b from-gray-900 to-gray-800
+                    dark:from-gray-800 dark:to-gray-900
+                    transition-colors duration-500
+                    blur-sm
+                    opacity-50
+                    md:blur-none
+                    md:opacity-100
+                    lg:blur-none lg:opacity-100
+                    lg:fixed lg:inset-0 lg:z-[-1]
+                    lg:w-full lg:h-full lg:object-cover
+                    lg:object-center lg:object-cover
+                    lg:transition-all lg:duration-500
+                    lg:backdrop-blur-lg lg:backdrop-filter
+                    lg:bg-gradient-to-b lg:from-gray-900 lg:to-gray-800
+                    lg:dark:from-gray-800 lg:dark:to-gray-900
+                    " />
                     <div className="pb-24 pt-12 md:pb-32 lg:pb-56 lg:pt-44">
                         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 text-center">
                             <div className="mx-auto max-w-lg">
@@ -185,7 +205,7 @@ export default function HeroSection() {
                                 </div>
 
                                 <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row">
-                                    <Button asChild size="lg" className="px-5 text-base">
+                                    <Button asChild size="lg" className="px-5 text-base rounded-full">
                                         <Link href="/dashboard">
                                             <span className="text-nowrap">Launch App</span>
                                             <ArrowRight className="ml-2 h-5 w-5" />
@@ -207,7 +227,7 @@ export default function HeroSection() {
                             </div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 max-w-4xl mx-auto lg:pb-32">
+                    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-14 max-w-4xl mx-auto lg:pb-32">
                         <div className="text-center">
                             <div className="text-3xl font-bold text-white-900 mb-2">$2.4M+</div>
                             <div className="text-white-600">Total Value Locked</div>
@@ -220,94 +240,11 @@ export default function HeroSection() {
                             <div className="text-3xl font-bold text-white-900 mb-2">1,200+</div>
                             <div className="text-white-600">Active Users</div>
                         </div>
-                    </div>
+                    </div> */}
+                    <StatsSection />
 
                 </section>
-                <section className="bg-background pb-16 md:pb-32">
-                    <div className="group relative m-auto max-w-6xl px-6">
-                        <div className="flex flex-col items-center md:flex-row">
-                            <div className="md:max-w-44 md:border-r md:pr-6">
-                                <p className="text-end text-sm">Powering the best teams</p>
-                            </div>
-                            <div className="relative py-6 md:w-[calc(100%-11rem)]">
-                                <InfiniteSlider
-                                    speedOnHover={20}
-                                    speed={40}
-                                    gap={112}>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-5 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/openai.svg"
-                                            alt="Nvidia Logo"
-                                            height="20"
-                                            width="auto"
-                                        />
-                                    </div>
-
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-4 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/column.svg"
-                                            alt="Column Logo"
-                                            height="16"
-                                            width="auto"
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-4 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/github.svg"
-                                            alt="GitHub Logo"
-                                            height="16"
-                                            width="auto"
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-5 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/nike.svg"
-                                            alt="Nike Logo"
-                                            height="20"
-                                            width="auto"
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-4 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/tailwindcss.svg"
-                                            alt="Laravel Logo"
-                                            height="16"
-                                            width="auto"
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-7 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/vercel.svg"
-                                            alt="Lilly Logo"
-                                            height="28"
-                                            width="auto"
-                                        />
-                                    </div>
-                                </InfiniteSlider>
-
-                                <div className="bg-linear-to-r from-background absolute inset-y-0 left-0 w-20"></div>
-                                <div className="bg-linear-to-l from-background absolute inset-y-0 right-0 w-20"></div>
-                                <ProgressiveBlur
-                                    className="pointer-events-none absolute left-0 top-0 h-full w-20"
-                                    direction="left"
-                                    blurIntensity={1}
-                                />
-                                <ProgressiveBlur
-                                    className="pointer-events-none absolute right-0 top-0 h-full w-20"
-                                    direction="right"
-                                    blurIntensity={1}
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
+                {/* <LogoCloud /> */}
             </main>
         </>
     )
