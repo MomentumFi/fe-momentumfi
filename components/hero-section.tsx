@@ -3,19 +3,15 @@
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 import { HeroHeader } from './header'
-import { InfiniteSlider } from '@/components/ui/infinite-slider'
-import { ProgressiveBlur } from '@/components/ui/progressive-blur'
 import { ExternalLink, ArrowRight } from "lucide-react"
 import { Zap } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import LogoCloud from './logo-cloud'
 import StatsSection from './stats'
 import HeroScrollDemo from '@/components/container-scroll'
 import HoverBorderGradientDemo from '@/components/hoverBorderGradientDemo'
-
+import { AuroraText } from '@/components/magicui/aurora-text'
 
 export default function HeroSection() {
     interface Particle {
@@ -131,6 +127,7 @@ export default function HeroSection() {
 
     return (
         <>
+
             <HeroHeader />
             <main className="overflow-x-hidden">
                 <section>
@@ -156,7 +153,7 @@ export default function HeroSection() {
                     <div className="pb-24 pt-12 md:pb-32 lg:pb-56 lg:pt-44">
                         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 text-center">
                             <div className="mx-auto max-w-lg">
-                                <div className="mb-20">
+                                <div className="mb-8">
 
                                     <div className="relative inline-block">
                                         <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 shadow-2xl">
@@ -188,29 +185,22 @@ export default function HeroSection() {
                                                 ease: "easeInOut",
                                             }}
                                         >
-                                            MomentumFi
                                             {/* Glow overlay */}
-                                            <span
-                                                className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent blur-sm opacity-50"
-                                                aria-hidden="true"
-                                            >
-                                                MomentumFi
-                                            </span>
+                                                <AuroraText>MomentumFi</AuroraText>
+                                            
                                         </motion.span>
                                     </motion.h1>
 
-                                    <p className="mb-4 text-2xl font-medium text-gray-600">AI Agent for ckBTC Auto-Rebalancing</p>
+                                    <p className="text-2xl text-gray-600 mb-4 font-medium">AI Agent for ckBTC Auto-Rebalancing</p>
 
                                     <p className="mb-12 w-full text-xl font-semibold text-blue-600 ">
                                         AI-powered portfolio optimization with Chain Fusion & OpenAI
                                     </p>
                                 </div>
                                 <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row">
-                                    <Button asChild size="lg" className="px-5 text-base rounded-full">
-                                        <Link href="/dashboard">
-                                            <HoverBorderGradientDemo />
-                                        </Link>
-                                    </Button>
+                                    <Link href="/dashboard">
+                                        <HoverBorderGradientDemo />
+                                    </Link>
                                     <Button
                                         key={2}
                                         asChild

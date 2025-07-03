@@ -9,7 +9,7 @@ export default function HoverBorderGradientDemo() {
             <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="button"
-                className="bg-slate-800 text-white flex space-x-2"
+                className="bg-slate-1000 text-white flex space-x-2"
             >
                 <span>Launch App</span>
                 <ArrowRight className="ml-1 h-5 w-5" />
