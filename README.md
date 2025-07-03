@@ -1,4 +1,3 @@
-Berikut **README.md** lengkap dengan keterangan yang kamu berikan dan tambahan struktur rapi untuk dokumentasi awal project:
 
 ````markdown
 # Project Title
