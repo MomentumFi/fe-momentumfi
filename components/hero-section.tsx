@@ -12,6 +12,8 @@ import StatsSection from './stats'
 import HeroScrollDemo from '@/components/container-scroll'
 import HoverBorderGradientDemo from '@/components/hoverBorderGradientDemo'
 import { AuroraText } from '@/components/magicui/aurora-text'
+import { TextAnimate } from '@/components/magicui/text-animate'
+import Features from '@/components/features-1'
 
 export default function HeroSection() {
     interface Particle {
@@ -155,6 +157,7 @@ export default function HeroSection() {
                             <div className="mx-auto max-w-lg">
                                 <div className="mb-8">
 
+
                                     <div className="relative inline-block">
                                         <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 shadow-2xl">
                                             <span className="text-3xl font-bold text-white">M</span>
@@ -186,11 +189,10 @@ export default function HeroSection() {
                                             }}
                                         >
                                             {/* Glow overlay */}
-                                                <AuroraText>MomentumFi</AuroraText>
-                                            
+                                            <AuroraText>MomentumFi</AuroraText>
+
                                         </motion.span>
                                     </motion.h1>
-
                                     <p className="text-2xl text-gray-600 mb-4 font-medium">AI Agent for ckBTC Auto-Rebalancing</p>
 
                                     <p className="mb-12 w-full text-xl font-semibold text-blue-600 ">
@@ -236,6 +238,7 @@ export default function HeroSection() {
 
                 </section>
                 {/* <LogoCloud /> */}
+                <Features />
             </main>
         </>
     )

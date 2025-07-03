@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Zap, Github, Twitter, MessageCircle, ExternalLink, BarChart3, Cpu, Lock } from "lucide-react"
 import Link from "next/link"
 
+
 export function LandingPage() {
   const features = [
     {
