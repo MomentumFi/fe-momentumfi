@@ -12,10 +12,37 @@ import StatsSection from './stats'
 import HeroScrollDemo from '@/components/container-scroll'
 import HoverBorderGradientDemo from '@/components/hoverBorderGradientDemo'
 import { AuroraText } from '@/components/magicui/aurora-text'
-import { TextAnimate } from '@/components/magicui/text-animate'
-import Features from '@/components/features-1'
+import { Card, CardContent } from '@/components/ui/card'
+import { BarChart3, Cpu } from 'lucide-react'
+import Footer from './footer'
+import MusicPlayer from './border-beam-demo-2'
+import IntergrationLogo from './integration-logo'
+import CtaSection from './cta-section'
 
 export default function HeroSection() {
+    const features = [
+        {
+            icon: <BarChart3 className="h-10 w-10 text-blue-500" />,
+            title: "Real-time Trend Analysis",
+            subtitle: "RSI, MA7/MA30",
+            description:
+                "Advanced technical indicators powered by AI to identify optimal market entry and exit points for maximum portfolio performance.",
+        },
+        {
+            icon: <Zap className="h-10 w-10 text-purple-500" />,
+            title: "Auto Portfolio Rebalancing",
+            subtitle: "ckBTC, ckETH, ckUSDT",
+            description:
+                "Seamless automated rebalancing across Internet Computer tokens with intelligent allocation strategies and risk management.",
+        },
+        {
+            icon: <Cpu className="h-10 w-10 text-green-500" />,
+            title: "Transparent AI Agent",
+            subtitle: "Eliza OS + ICP Canister",
+            description:
+                "Open-source AI decision making with full transparency, powered by Eliza OS and deployed on Internet Computer Protocol.",
+        },
+    ]
     interface Particle {
         x: number
         y: number
@@ -238,8 +265,41 @@ export default function HeroSection() {
 
                 </section>
                 {/* <LogoCloud /> */}
-                <Features />
+                {/* <Features /> */}
+                <section className="py-24 px-4 sm:px-6 lg:px-8 dark:bg-transparent backdrop-blur-sm">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="text-center mb-16">
+                            <h2 className="text-balance text-4xl font-semibold lg:text-5xl">Intelligent DeFi Automation</h2>
+                            <p className="mt-4">
+                                Harness the power of AI-driven portfolio management with transparent, secure, and efficient rebalancing
+                                strategies.
+                            </p>
+                        </div>
+
+                        <div className="grid lg:grid-cols-3 gap-8">
+                            {features.map((feature, index) => (
+                                <Card
+                                    key={index}
+                                    className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm group hover:-translate-y-2"
+                                >
+                                    <CardContent className="p-8">
+                                        <div className="mb-6 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                                        <p className="text-sm font-semibold text-blue-600 mb-4">{feature.subtitle}</p>
+                                        <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <MusicPlayer />
+
+                <IntergrationLogo />
+                <CtaSection />
             </main>
+            <Footer />
         </>
     )
 }
