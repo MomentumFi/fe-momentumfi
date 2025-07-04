@@ -15,8 +15,8 @@ export default function IntergrationLogo() {
             {/* Integration Logos */}
             <section className="py-24 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-6xl mx-auto text-center">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Powered by Leading Technologies</h2>
-                    <p className="text-xl text-gray-600 mb-16">
+                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl">Powered by Leading Technologies</h2>
+                    <p className="text-xl mb-16 mt-4">
                         Built on the most trusted and innovative blockchain infrastructure
                     </p>
 
@@ -32,7 +32,7 @@ export default function IntergrationLogo() {
                                     >
                                         <span className="text-3xl">{integration.icon}</span>
                                     </div>
-                                    <p className="font-bold text-gray-900 text-lg">{integration.name}</p>
+                                    <p className="font-bold text-lg">{integration.name}</p>
                                 </CardContent>
                             </Card>
                         ))}

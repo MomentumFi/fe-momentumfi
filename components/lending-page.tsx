@@ -19,7 +19,7 @@ import MusicPlayer from './border-beam-demo-2'
 import IntergrationLogo from './integration-logo'
 import CtaSection from './cta-section'
 
-export default function HeroSection() {
+export default function LendingPage() {
     const features = [
         {
             icon: <BarChart3 className="h-10 w-10 text-blue-500" />,
