@@ -18,6 +18,7 @@ import Footer from './footer'
 import MusicPlayer from './border-beam-demo-2'
 import IntergrationLogo from './integration-logo'
 import CtaSection from './cta-section'
+import ConnectWallet from './ui/connectWallet'
 
 export default function LendingPage() {
     const features = [
@@ -157,6 +158,7 @@ export default function LendingPage() {
     return (
         <>
 
+            {/* <ConnectWallet /> */}
             <HeroHeader />
             <main className="overflow-x-hidden">
                 <section>

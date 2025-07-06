@@ -8,6 +8,7 @@ import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import { Wallet, Settings } from 'lucide-react'
 import { useState } from 'react'
+import ConnectWallet from '@/components/ui/connectWallet'
 import { AuroraText } from './magicui/aurora-text'
 
 const menuItems = [
@@ -101,23 +102,24 @@ export const HeroHeader = () => {
                                 </ul>
                             </div> */}
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                    {/* Wallet Connection */}
-                                    <div className="flex items-center space-x-3">
-                                        <Button
-                                            onClick={() => setIsConnected(!isConnected)}
-                                            className={`flex items-center space-x-2 ${isConnected
-                                                ? "bg-green-100 text-green-800 hover:bg-green-200 border border-green-300"
-                                                : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                                                }`}
-                                            variant={isConnected ? "outline" : "default"}
-                                        >
-                                            <Wallet className="h-4 w-4" />
-                                            <span className="font-medium">{isConnected ? "0x1234...5678" : "Connect Wallet"}</span>
-                                        </Button>
-                                        {/* <Button variant="outline" size="icon" className="bg-white/60 backdrop-blur-sm">
+                                {/* Wallet Connection */}
+                                <div className="flex items-center space-x-3">
+                                    <ConnectWallet />
+                                    {/* <Button
+                                        onClick={() => setIsConnected(!isConnected)}
+                                        className={`flex items-center space-x-2 ${isConnected
+                                            ? "bg-green-100 text-green-800 hover:bg-green-200 border border-green-300"
+                                            : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                                            }`}
+                                        variant={isConnected ? "outline" : "default"}
+                                    >
+                                        <Wallet className="h-4 w-4" />
+                                        <span className="font-medium">{isConnected ? "0x1234...5678" : "Connect Wallet"}</span>
+                                    </Button> */}
+                                    {/* <Button variant="outline" size="icon" className="bg-white/60 backdrop-blur-sm">
                                             <Settings className="h-4 w-4" />
                                         </Button> */}
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
