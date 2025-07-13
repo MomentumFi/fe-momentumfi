@@ -1,23 +1,21 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Settings2, Sparkles, Zap } from 'lucide-react'
 import { ReactNode } from 'react'
+import { BarChart3 } from 'lucide-react'
 
 export default function Features() {
     return (
         <section className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
-            <div className="@container mx-auto max-w-5xl px-6">
+            <div className="@container mx-auto max-w-7xl px-6">
                 <div className="text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl">Intelligent DeFi Automation</h2>
-                    <p className="mt-4">Harness the power of AI-driven portfolio management with transparent, secure, and efficient rebalancing strategies.</p>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl">Built to cover your needs</h2>
+                    <p className="mt-4">Libero sapiente aliquam quibusdam aspernatur, praesentium iusto repellendus.</p>
                 </div>
-                <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
+                <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-full gap-8 *:text-center md:mt-16 grid-cols-3">
                     <Card className="group shadow-zinc-950/5">
                         <CardHeader className="pb-3">
                             <CardDecorator>
-                                <Zap
-                                    className="size-6"
-                                    aria-hidden
-                                />
+                                <BarChart3 className="h-10 w-10 text-blue-500" />
                             </CardDecorator>
 
                             <h3 className="mt-6 font-medium">Customizable</h3>

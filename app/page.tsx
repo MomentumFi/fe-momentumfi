@@ -1,16 +1,11 @@
 
-import Features from "@/components/features-1"
-import { HeroHeader } from "@/components/header"
-import HeroSection from "@/components/hero-section"
-import { LandingPage } from "@/components/landing-page"
-
+import Hero from "@/components/hero"
+import LendingPage from "@/components/lending-page"
 export default function Home() {
   return (
     <>
-    
-      <HeroSection />
-      {/* <Features /> */}
-      <LandingPage />
+      <Hero />
+      {/* <LendingPage /> */}
     </>
   )
 
