@@ -15,10 +15,11 @@ import { AuroraText } from '@/components/magicui/aurora-text'
 import { Card, CardContent } from '@/components/ui/card'
 import { BarChart3, Cpu } from 'lucide-react'
 import Footer from './footer'
-import MusicPlayer from './border-beam-demo-2'
 import IntergrationLogo from './integration-logo'
 import CtaSection from './cta-section'
 import ConnectWallet from './ui/connectWallet'
+import { ScrollProgress } from './magicui/scroll-progress'
+import AnimatedGradient from './animated-gradien'
 
 export default function LendingPage() {
     const features = [
@@ -159,6 +160,7 @@ export default function LendingPage() {
         <>
 
             {/* <ConnectWallet /> */}
+            <ScrollProgress />
             <HeroHeader />
             <main className="overflow-x-hidden">
                 <section>
@@ -183,10 +185,11 @@ export default function LendingPage() {
                     " />
                     <div className="pb-24 pt-12 md:pb-32 lg:pb-56 lg:pt-44">
                         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 text-center">
+                            <div className="gap-2 mx-auto mb-8 flex items-center justify-center">
+                                <AnimatedGradient />
+                            </div>
                             <div className="mx-auto max-w-lg">
                                 <div className="mb-8">
-
-
                                     <div className="relative inline-block">
                                         <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 shadow-2xl">
                                             <span className="text-3xl font-bold text-white">M</span>
@@ -219,7 +222,6 @@ export default function LendingPage() {
                                         >
                                             {/* Glow overlay */}
                                             <AuroraText>MomentumFi</AuroraText>
-
                                         </motion.span>
                                     </motion.h1>
                                     <p className="text-2xl text-gray-600 mb-4 font-medium">AI Agent for ckBTC Auto-Rebalancing</p>
@@ -295,8 +297,6 @@ export default function LendingPage() {
                         </div>
                     </div>
                 </section>
-
-                <MusicPlayer />
 
                 <IntergrationLogo />
                 <CtaSection />

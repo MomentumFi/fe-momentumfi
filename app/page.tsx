@@ -1,9 +1,11 @@
-import LendingPage from "@/components/lending-page"
 
+import Hero from "@/components/hero"
+import LendingPage from "@/components/lending-page"
 export default function Home() {
   return (
     <>
-      <LendingPage />
+      <Hero />
+      {/* <LendingPage /> */}
     </>
   )
 
