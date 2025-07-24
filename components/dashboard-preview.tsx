@@ -13,28 +13,28 @@ export default function DashboardPreview() {
             setEarnings((prev) => prev + Math.floor(Math.random() * 5))
             setTodayEarnings((prev) => prev + Math.floor(Math.random() * 2))
         }, 3000)
-        
+
         return () => clearInterval(interval)
     }, [])
 
     const containerRef = useRef<HTMLDivElement>(null)
-    
-        useEffect(() => {
-            const handleMouseMove = (e: MouseEvent) => {
-                if (!containerRef.current) return
-    
-                const { clientX, clientY } = e
-                const { innerWidth, innerHeight } = window
-    
-                const x = (clientX / innerWidth - 0.5) * 20
-                const y = (clientY / innerHeight - 0.5) * 20
-    
-                containerRef.current.style.transform = `translate(${x}px, ${y}px)`
-            }
-    
-            window.addEventListener("mousemove", handleMouseMove)
-            return () => window.removeEventListener("mousemove", handleMouseMove)
-        }, [])
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!containerRef.current) return
+
+            const { clientX, clientY } = e
+            const { innerWidth, innerHeight } = window
+
+            const x = (clientX / innerWidth - 0.5) * 20
+            const y = (clientY / innerHeight - 0.5) * 20
+
+            containerRef.current.style.transform = `translate(${x}px, ${y}px)`
+        }
+
+        window.addEventListener("mousemove", handleMouseMove)
+        return () => window.removeEventListener("mousemove", handleMouseMove)
+    }, [])
 
     return (
         <motion.div className="relative max-w-2xl mx-auto" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
@@ -42,10 +42,9 @@ export default function DashboardPreview() {
             <div ref={containerRef} className="mt-20 bg-gray-900/80 backdrop-blur-xl rounded-2xl border border-gray-800 p-6 shadow-2xl">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center space-x-2">
-                        <div className="text-lg font-bold">
-                            <span className="text-white">{">"}</span>
-                            <span className="text-purple-400">{"<"}</span>
+                    <div className="flex items-center space-x-2 ">
+                        <div className="text-lg font-bold flex items-center">
+                            <img src="/logo.png" alt="" className="w-10" />
                             <span className="text-white ml-2">MomentumFI</span>
                         </div>
                     </div>

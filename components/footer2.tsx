@@ -57,10 +57,9 @@ export default function Footer2() {
                             className="mb-6"
                         >
                             <div className="flex items-center space-x-2 mb-4">
-                                <div className="text-2xl font-bold">
-                                    <span className="text-white">{">"}</span>
-                                    <span className="text-purple-400">{"<"}</span>
-                                    <span className="text-white ml-2">MemomentumFI</span>
+                                <div className="text-2xl font-bold flex items-center">
+                                    <img src="/logo.png" alt="" className="w-20" />
+                                    <span className="text-white ml-2">MomentumFI</span>
                                 </div>
                             </div>
                             <p className="text-gray-300 leading-relaxed mb-6">
