@@ -7,7 +7,7 @@ import { useRef } from "react"
 const steps = [
     {
         number: "01",
-        title: "onnect Your Wallet",
+        title: "Connect Your Wallet",
         description: "Link your Plug Wallet or Internet Identity to the MomentumFi dashboard to get started securely.",
         icon: "📥",
     },
