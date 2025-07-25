@@ -7,29 +7,29 @@ import { useRef } from "react"
 const steps = [
     {
         number: "01",
-        title: "Download & Install",
-        description: "Get the MomentumFI Chrome extension or desktop app in seconds. Quick setup with just a few clicks.",
+        title: "onnect Your Wallet",
+        description: "Link your Plug Wallet or Internet Identity to the MomentumFi dashboard to get started securely.",
         icon: "📥",
     },
     {
         number: "02",
-        title: "Connect Your Device",
+        title: "Monitor Market Trends",
         description:
-            "Link your devices to the MomentumFI network. Our secure system will verify and optimize your connection.",
+            "MomentumFi’s AI agent fetches real-time market data and analyzes trends using indicators like MA, RSI, and volume breakout.",
         icon: "🔗",
     },
     {
         number: "03",
-        title: "Start Earning",
+        title: "Receive Rebalancing Signals",
         description:
-            "Sit back and watch your rewards grow automatically. Track your earnings in real-time through our dashboard.",
+            "Get strategic rebalancing recommendations tailored to your portfolio risk profile directly on your dashboard.",
         icon: "💰",
     },
     {
         number: "04",
-        title: "Withdraw Rewards",
+        title: "Execute or Automate Rebalancing",
         description:
-            "Cash out your earnings anytime through multiple payment methods. Fast, secure, and hassle-free withdrawals.",
+            "Choose Manual, Semi-Auto, or Auto mode to rebalance your portfolio seamlessly across ckBTC, ckETH, and ckUSDT.",
         icon: "🏦",
     },
 ]

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';   
+import Link from 'next/link';
 
 export default function CtaSection() {
     return (
         <>
             {/* CTA Section */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-2xl p-8 border border-purple-600/20 mb-12">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-4xl font-bold text-white mb-6">Ready to Optimize Your Portfolio?</h2>
                     <p className="text-xl text-blue-100 mb-12">

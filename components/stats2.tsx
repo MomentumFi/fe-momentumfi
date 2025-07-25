@@ -8,32 +8,32 @@ import Link from "next/link"
 
 const stats = [
     {
-        number: 50000,
-        suffix: "+",
-        label: "Active Users",
-        description: "Trusted by users worldwide",
-        icon: "👥",
-    },
-    {
-        number: 2.5,
-        suffix: "M+",
-        label: "Rewards Distributed",
-        description: "Total earnings paid out",
-        icon: "💎",
-    },
-    {
-        number: 99.9,
+        number: "99",
         suffix: "%",
-        label: "Uptime",
-        description: "Reliable service guarantee",
-        icon: "⚡",
+        label: "Strategy Accuracy",
+        description: "AI-driven rebalancing signals with high precision",
+        icon: "✅",
     },
     {
-        number: 150,
+        number: "1000",
         suffix: "+",
-        label: "Countries",
-        description: "Global network coverage",
-        icon: "🌍",
+        label: "Successful Rebalances",
+        description: "Portfolios optimized across multiple market cycles",
+        icon: "🔄",
+    },
+    {
+        number: "15.7",
+        suffix: "%",
+        label: "Average Yield Boost",
+        description: "Higher returns with momentum-based strategies",
+        icon: "📈",
+    },
+    {
+        number: "3",
+        suffix: "+",
+        label: "Assets Supported",
+        description: "ckBTC, ckETH, and ckUSDT cross-chain swaps",
+        icon: "🌐",
     },
 ]
 
@@ -131,7 +131,7 @@ export default function Stats2() {
 
                                 {/* Number */}
                                 <motion.div className="text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent relative z-10">
-                                    <AnimatedCounter target={stat.number} suffix={stat.suffix} />
+                                    <AnimatedCounter target={Number(stat.number)} suffix={stat.suffix} />
                                 </motion.div>
 
                                 {/* Label */}

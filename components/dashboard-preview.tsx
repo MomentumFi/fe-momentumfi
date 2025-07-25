@@ -45,7 +45,9 @@ export default function DashboardPreview() {
                     <div className="flex items-center space-x-2 ">
                         <div className="text-lg font-bold flex items-center">
                             <img src="/logo.png" alt="" className="w-10" />
-                            <span className="text-white ml-2">MomentumFI</span>
+                            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                MomentumFI
+                            </span>
                         </div>
                     </div>
                     <div className="flex items-center space-x-4">
