@@ -7,14 +7,14 @@ const footerLinks = {
     product: [
         { name: "Features", href: "#features" },
         { name: "How it Works", href: "#how-it-works" },
+        { name: "FAQ", href: "#faq" },
         { name: "Pricing", href: "#pricing" },
-        { name: "Chrome Extension", href: "#extension" },
     ],
-    company: [
-        { name: "About Us", href: "#about" },
-        { name: "Blog", href: "#blog" },
-        { name: "Careers", href: "#careers" },
-        { name: "Press", href: "#press" },
+    resources: [
+        { name: "Blog", href: "#" },
+        { name: "Help Center", href: "#" },
+        { name: "Community", href: "#" },
+        { name: "Status", href: "#" },
     ],
     support: [
         { name: "Help Center", href: "#help" },
@@ -59,12 +59,13 @@ export default function Footer2() {
                             <div className="flex items-center space-x-2 mb-4">
                                 <div className="text-2xl font-bold flex items-center">
                                     <img src="/logo.png" alt="" className="w-20" />
-                                    <span className="text-white ml-2">MomentumFI</span>
+                                    <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                        MomentumFI
+                                    </span>
                                 </div>
                             </div>
                             <p className="text-gray-300 leading-relaxed mb-6">
-                                Empowering users worldwide to earn rewards through decentralized resource sharing. Join the future of
-                                passive income today.
+                                The future of decentralized finance powered by artificial intelligence and Internet Computer Protocol.
                             </p>
 
                             {/* Social Links */}
@@ -113,9 +114,9 @@ export default function Footer2() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            <h3 className="text-white font-semibold mb-4">Company</h3>
+                            <h3 className="text-white font-semibold mb-4">Resources</h3>
                             <ul className="space-y-3">
-                                {footerLinks.company.map((link, index) => (
+                                {footerLinks.resources.map((link, index) => (
                                     <li key={index}>
                                         <Link
                                             href={link.href}

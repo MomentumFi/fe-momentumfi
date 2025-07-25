@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { AuroraText } from "./magicui/aurora-text"
 
 export default function Navigation() {
     return (
@@ -15,8 +16,10 @@ export default function Navigation() {
                 {/* Logo */}
                 <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
                     <div className="text-2xl font-bold text-white flex items-center">
-                        <img src="/logo.png" alt="" className="w-20"/>
-                        <span className="text-white ml-2">MomentumFI</span>
+                        <img src="/logo.png" alt="" className="w-20" />
+                        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            MomentumFI
+                        </span>
                     </div>
                 </motion.div>
 

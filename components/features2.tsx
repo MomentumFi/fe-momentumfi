@@ -3,44 +3,45 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { Cpu } from "lucide-react"
 
 const features = [
     {
-        icon: "🚀",
-        title: "Effortless Earning",
+        icon: <Cpu className="h-10 w-10 text-green-500" />,
+        title: "Automated Rebalancing",
         description:
-            "Start earning rewards automatically by sharing your unused device resources with zero effort required.",
+            "Optimize your portfolio automatically based on real-time market momentum detection and AI-driven strategies.",
         gradient: "from-purple-600 to-pink-600",
     },
     {
         icon: "🔒",
-        title: "Secure & Private",
+        title: "Secure & Transparent",
         description:
-            "Your data remains completely private and secure with enterprise-grade encryption and privacy protection.",
+            "All actions are recorded on-chain with open-source agent logic, ensuring full transparency and user control.",
         gradient: "from-blue-600 to-cyan-600",
     },
     {
         icon: "⚡",
-        title: "Real-time Rewards",
-        description: "Track your earnings in real-time with instant notifications and transparent reward calculations.",
+        title: "Real-time Market Analysis",
+        description: "Monitor market trends in real-time with advanced indicators like MA, RSI, and volume breakouts for informed decisions.",
         gradient: "from-green-600 to-emerald-600",
     },
     {
         icon: "🌐",
-        title: "Global Network",
-        description: "Join thousands of users worldwide contributing to a decentralized ecosystem that benefits everyone.",
+        title: "Cross-Chain Swap Integration",
+        description: "Seamlessly rebalance assets across ckBTC, ckETH, and ckUSDT using ICP’s Chain Fusion for smooth DEX swaps.",
         gradient: "from-orange-600 to-red-600",
     },
     {
-        icon: "📱",
-        title: "Multi-Device Support",
-        description: "Works seamlessly across all your devices - desktop, mobile, and tablets with unified management.",
+        icon: "🧠",
+        title: "AI-Powered Decision Making",
+        description: "Leverage AI modules for trend analysis, risk evaluation, and strategic planning to maximize portfolio performance.",
         gradient: "from-indigo-600 to-purple-600",
     },
     {
-        icon: "💎",
-        title: "Premium Benefits",
-        description: "Unlock exclusive features, higher earning rates, and priority support with our premium membership.",
+        icon: "📊",
+        title: "Flexible User Modes",
+        description: "Choose Manual, Semi-Auto, or Auto mode for rebalancing, giving you the flexibility to control your investments.",
         gradient: "from-yellow-600 to-orange-600",
     },
 ]
@@ -90,7 +91,7 @@ export default function Features2() {
                         transition={{ duration: 0.6, delay: 0.5 }}
                         className="text-xl text-gray-300 max-w-3xl mx-auto"
                     >
-                        Discover the powerful features that make RhinoSpider the leading platform for earning rewards through
+                        Discover the advanced features that make MomentumFI the leading platform for profiting through
                         resource sharing.
                     </motion.p>
                 </motion.div>

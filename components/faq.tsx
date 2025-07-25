@@ -6,34 +6,34 @@ import { useRef, useState } from "react"
 
 const faqs = [
     {
-        question: "What is MemomentumFI?",
+        question: "What is MomentumFi?",
         answer:
-            "MemomentumFI is a revolutionary platform that allows you to earn rewards by sharing your unused device resources with a decentralized network. It's completely passive income that requires no effort from your side once set up.",
+            "MomentumFi is an AI-powered DeFi protocol that automatically rebalances your crypto portfolio across ckBTC, ckETH, and ckUSDT based on real-time market momentum detection.",
     },
     {
-        question: "How do I start earning?",
+        question: "How does the AI agent work?",
         answer:
-            "Getting started is simple! Download our Chrome extension or desktop app, create an account, connect your devices, and start earning immediately. The entire process takes less than 5 minutes.",
+            "The AI agent fetches market data hourly, analyzes trends (MA, RSI, volume breakout), evaluates risk, plans rebalancing strategies, and executes swaps via DEX if auto-mode is enabled.",
     },
     {
-        question: "Is my data secure?",
+        question: "Is my data secure and private?",
         answer:
-            "We use enterprise-grade encryption and never access your personal data. Your privacy is our top priority, and all resource sharing is done through secure, isolated processes that protect your information.",
+            "Yes. All agent actions are recorded on-chain within ICP Canisters, with open-source logic for full transparency and granular user control.",
     },
     {
-        question: "How are rewards calculated?",
+        question: "What assets are supported?",
         answer:
-            "Rewards are calculated based on the resources you contribute, including bandwidth, processing power, and uptime. Our transparent algorithm ensures fair compensation, and you can track your earnings in real-time through our dashboard.",
+            "Currently, MomentumFi supports rebalancing between ckBTC, ckETH, and ckUSDT, with future plans to expand to more assets.",
     },
     {
-        question: "What devices are supported?",
+        question: "Can I choose how my portfolio is rebalanced?",
         answer:
-            "MomentumFI works on Windows, macOS, Linux, and through our Chrome extension. We support desktops, laptops, and mobile devices, allowing you to maximize your earning potential across all your devices.",
+            "Yes. You can select Manual, Semi-Auto, or Auto mode for rebalancing to suit your investment preferences and risk profile.",
     },
     {
-        question: "How do I withdraw my earnings?",
+        question: "What technology does MomentumFi use?",
         answer:
-            "You can withdraw your earnings anytime through multiple payment methods including PayPal, bank transfer, cryptocurrency, and gift cards. Minimum withdrawal amounts vary by payment method, with fast processing times.",
+            "MomentumFi integrates Eliza OS, OpenAI GPT-4, ICP Canisters (Motoko/Rust), Plug Wallet, and Chain Fusion for seamless cross-chain swaps and smart contract executions.",
     },
 ]
 
