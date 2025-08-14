@@ -6,6 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
+import Link from "next/link"
+import ConnectPlug from "@/components/wallet/connect-wallet"
+import { motion } from "framer-motion"
 import {
   ArrowUpRight,
   ArrowDownRight,
@@ -23,13 +26,9 @@ import {
   Target,
   Activity,
 } from "lucide-react"
-import Link from "next/link"
-import ConnectWallet from "@/components/ui/connectWallet"
 
 export function Dashboard() {
-  const [mode, setMode] = useState<"Manual" | "Semi-Auto" | "Auto">("Semi-Auto")
   const [countdown, setCountdown] = useState(1847)
-  const [isConnected, setIsConnected] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -151,75 +150,54 @@ export function Dashboard() {
     return variants[status as keyof typeof variants] || "bg-gray-800 text-gray-300"
   }
 
+
+  const [mode, setMode] = useState<"Manual" | "Semi-Auto" | "Auto">("Semi-Auto")
+
   return (
-    <div className="min-h-screen bg-black">
-      {/* Navigation */}
+    <div className="min-h-screen">
       <nav className="border-b border-gray-800 bg-gray-900/80 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-lg">M</span>
+              <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
+                <div className="text-2xl font-bold text-white flex items-center">
+                  <img src="/logo.png" alt="" className="w-20" />
+                  <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    MomentumFI
+                    <p className="text-xs text-gray-400 -mt-1">Dashboard</p>
+                  </span>
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              </div>
-              <div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  MomentumFi
-                </span>
-                <p className="text-xs text-gray-400 -mt-1">Dashboard</p>
-              </div>
+              </motion.div>
             </Link>
             <div className="flex items-center space-x-6">
               {/* Mode Switcher */}
-              <div className="flex items-center space-x-2 bg-gray-800/60 backdrop-blur-sm rounded-xl p-1 border border-gray-700">
-                {(["Manual", "Semi-Auto", "Auto"] as const).map((m) => (
-                  <button
-                    key={m}
-                    onClick={() => setMode(m)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${mode === m
-                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                        : "text-gray-300 hover:text-white hover:bg-gray-700/50"
-                      }`}
-                  >
-                    {m}
-                  </button>
-                ))}
-              </div>
+
               {/* Wallet Connection */}
-              <div className="flex items-center space-x-3">
-                {/* <Button
-                  onClick={() => setIsConnected(!isConnected)}
-                  className={`flex items-center space-x-2 ${isConnected
-                      ? "bg-green-900/50 text-green-300 hover:bg-green-800/50 border border-green-700"
-                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                    }`}
-                  variant={isConnected ? "outline" : "default"}
-                >
-                  <Wallet className="h-4 w-4" />
-                  <span className="font-medium">{isConnected ? "0x1234...5678" : "Connect Wallet"}</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="bg-gray-800/60 backdrop-blur-sm border-gray-700 text-gray-300 hover:text-white"
-                >
-                  <Settings className="h-4 w-4" />
-                </Button> */}
-                <ConnectWallet />
-              </div>
+
+              <ConnectPlug />
             </div>
           </div>
         </div>
       </nav>
-
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Portfolio Overview */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
-            <div>
+            <div className="flex items-center space-x-2 bg-gray-800/60 backdrop-blur-sm rounded-xl p-1 border border-gray-700">
+              {(["Manual", "Semi-Auto", "Auto"] as const).map((m) => (
+                <button
+                  key={m}
+                  onClick={() => setMode(m)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${mode === m
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                    : "text-gray-300 hover:text-white hover:bg-gray-700/50"
+                    }`}
+                >
+                  {m}
+                </button>
+              ))}
+            </div>
+            <div className="center justify-center text-center">
               <h1 className="text-3xl font-bold text-white">Portfolio Dashboard</h1>
               <p className="text-gray-400 mt-1">AI-powered portfolio optimization and rebalancing</p>
             </div>
