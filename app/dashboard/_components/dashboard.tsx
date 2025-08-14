@@ -6,7 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
-import HeaderDashboard from "./header"
+import Link from "next/link"
+import ConnectPlug from "@/components/wallet/connect-wallet"
+import { motion } from "framer-motion"
 import {
   ArrowUpRight,
   ArrowDownRight,
@@ -153,7 +155,30 @@ export function Dashboard() {
 
   return (
     <div className="min-h-screen">
-      <HeaderDashboard />
+      <nav className="border-b border-gray-800 bg-gray-900/80 backdrop-blur-xl sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <Link href="/" className="flex items-center space-x-3">
+              <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
+                <div className="text-2xl font-bold text-white flex items-center">
+                  <img src="/logo.png" alt="" className="w-20" />
+                  <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    MomentumFI
+                    <p className="text-xs text-gray-400 -mt-1">Dashboard</p>
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+            <div className="flex items-center space-x-6">
+              {/* Mode Switcher */}
+
+              {/* Wallet Connection */}
+
+              <ConnectPlug />
+            </div>
+          </div>
+        </div>
+      </nav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Portfolio Overview */}
         <div className="mb-8">

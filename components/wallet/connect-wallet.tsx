@@ -3,12 +3,11 @@
 import { useState, useRef, useEffect } from "react"
 import {
     ChevronDown,
-    ExternalLink,
     Copy,
+    ExternalLink,
+    Check,
     X,
-    Check
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 interface PlugWallet {
     accountId: string
@@ -17,7 +16,6 @@ interface PlugWallet {
 }
 
 export default function ConnectPlug() {
-    const [isWalletModalOpen, setIsWalletModalOpen] = useState(false)
     const [connectedWallet, setConnectedWallet] = useState<PlugWallet | null>(null)
     const [showCopySuccess, setShowCopySuccess] = useState(false)
     const [isConnecting, setIsConnecting] = useState(false)
@@ -59,6 +57,7 @@ export default function ConnectPlug() {
     const connectPlugWallet = async () => {
         setIsConnecting(true)
         try {
+            // Check if Plug is available
             if (typeof window !== "undefined" && (window as any).ic?.plug) {
                 const plug = (window as any).ic.plug
 
@@ -72,10 +71,8 @@ export default function ConnectPlug() {
                 setConnectedWallet({
                     accountId,
                     principalId,
-                    balance: 0,
+                    balance: 0, // You can fetch actual balance here
                 })
-
-                setIsWalletModalOpen(false)
             } else {
                 alert("Plug wallet not found. Please install Plug extension.")
             }
@@ -106,6 +103,11 @@ export default function ConnectPlug() {
         window.open(`https://dashboard.internetcomputer.org/account/${accountId}`, "_blank")
     }
 
+    const handleDisconnect = () => {
+        setConnectedWallet(null)
+        setIsWalletDropdownOpen(false)
+    }
+
     return (
         <>
             {/* Wallet Section */}
@@ -133,9 +135,10 @@ export default function ConnectPlug() {
                                             <span className="text-white text-xs">🔌</span>
                                         </div>
                                         <span className="text-white font-medium">{truncateAddress(connectedWallet.principalId)}</span>
-                                        <ChevronDown className="w-4 h-4 text-gray-400" />
                                     </div>
-                                    <Copy className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+                                    <button onClick={() => copyToClipboard(connectedWallet.principalId)}>
+                                        <Copy className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+                                    </button>
                                 </div>
 
                                 {/* Balance */}
@@ -179,7 +182,7 @@ export default function ConnectPlug() {
                                                 {truncateAddress(connectedWallet.principalId)}
                                             </button>
                                             <button
-                                                onClick={() => openAccountInDashboard(connectedWallet.accountId)}
+                                                onClick={() => openAccountInDashboard(connectedWallet.principalId)}
                                                 className="text-gray-400 hover:text-white"
                                             >
                                                 <ExternalLink className="w-4 h-4" />
@@ -187,45 +190,37 @@ export default function ConnectPlug() {
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Disconnect Button */}
+                                <div className="mt-4 pt-3 border-t border-slate-700">
+                                    <button
+                                        onClick={handleDisconnect}
+                                        className="flex items-center space-x-2 text-red-400 hover:text-red-300 transition-colors text-sm"
+                                    >
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                                            />
+                                        </svg>
+                                        <span>Disconnect</span>
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </>
                 ) : (
-                    <Button
-                        onClick={() => setIsWalletModalOpen(true)}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full"
+                    <button
+                        onClick={connectPlugWallet}
+                        disabled={isConnecting}
+                        className="bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white px-6 py-2 rounded-full transition-colors"
                     >
-                        Connect wallet
-                    </Button>
+                        {isConnecting ? "Connecting..." : "Connect Plug Wallet"}
+                    </button>
                 )}
             </div>
-
-            {/* Wallet Connection Modal */}
-            {isWalletModalOpen && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-                    <div className="bg-slate-800 rounded-2xl p-6 w-full max-w-lg border border-slate-700">
-                        {/* Modal Header */}
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-white text-xl font-semibold">Connect a wallet</h2>
-                            <button onClick={() => setIsWalletModalOpen(false)} className="text-gray-400 hover:text-white">
-                                <X className="w-6 h-6" />
-                            </button>
-                        </div>
-
-                        {/* Plug Wallet Option */}
-                        <button
-                            onClick={connectPlugWallet}
-                            disabled={isConnecting}
-                            className="w-full bg-slate-700/50 hover:bg-slate-700 rounded-xl p-4 flex items-center justify-between transition-colors disabled:opacity-50"
-                        >
-                            <span className="text-white font-medium">{isConnecting ? "Connecting..." : "Plug"}</span>
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center text-white text-sm font-bold">
-                                🔌
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            )}
 
             {/* Copy Success Notification */}
             {showCopySuccess && (
