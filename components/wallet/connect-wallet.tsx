@@ -118,9 +118,8 @@ export default function ConnectPlug() {
                             onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
                             className="flex items-center space-x-2 bg-slate-800/50 rounded-full px-4 py-2 hover:bg-slate-700/50 transition-colors"
                         >
-                            <div className="w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                                <span className="text-white text-xs">🔌</span>
-                            </div>
+                            <img src="https://app.icpswap.com/images/connect/Plug.svg" alt="Plug Icon" className="w-10 h-10" />
+
                             <span className="text-white text-sm">{truncateAddress(connectedWallet.principalId)}</span>
                             <ChevronDown className="w-4 h-4 text-gray-400" />
                         </button>
@@ -131,9 +130,8 @@ export default function ConnectPlug() {
                                 {/* Header with copy icon */}
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center space-x-2">
-                                        <div className="w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                                            <span className="text-white text-xs">🔌</span>
-                                        </div>
+                                        <img src="https://app.icpswap.com/images/connect/Plug.svg" alt="Plug Icon" className="w-10 h-10" />
+
                                         <span className="text-white font-medium">{truncateAddress(connectedWallet.principalId)}</span>
                                     </div>
                                     <button onClick={() => copyToClipboard(connectedWallet.principalId)}>
@@ -215,10 +213,19 @@ export default function ConnectPlug() {
                     <button
                         onClick={connectPlugWallet}
                         disabled={isConnecting}
-                        className="bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white px-6 py-2 rounded-full transition-colors"
+                        className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#00B8FF] via-[#00FFA3] via-[#FFD600] via-[#FF6A00] via-[#FF007A] to-[#7000FF]
+             hover:opacity-90 disabled:opacity-50
+             text-white font-semibold px-6 py-2 rounded-full
+             transition-all shadow-lg"
                     >
+                        <img
+                            src="https://app.icpswap.com/images/connect/Plug.svg"
+                            alt="Plug Logo"
+                            className={`w-8 h-8 ${isConnecting ? "animate-spin" : ""}`}
+                        />
                         {isConnecting ? "Connecting..." : "Connect Plug Wallet"}
                     </button>
+
                 )}
             </div>
 
