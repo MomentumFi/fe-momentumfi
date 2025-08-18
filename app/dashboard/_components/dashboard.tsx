@@ -171,9 +171,7 @@ export function Dashboard() {
             </Link>
             <div className="flex items-center space-x-6">
               {/* Mode Switcher */}
-
               {/* Wallet Connection */}
-
               <ConnectPlug />
             </div>
           </div>
