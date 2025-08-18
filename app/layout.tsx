@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "MomentumFI - AI AgenT ckBTC",
   description: "A modern Next.js starter with theme support",
-  generator: 'v0.dev'
 }
 
 export default function RootLayout({
