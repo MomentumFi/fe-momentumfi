@@ -228,10 +228,18 @@ export function Dashboard() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div
-                      className={`w-12 h-12 bg-gradient-to-r ${price.color} rounded-xl flex items-center justify-center text-white font-bold text-lg`}
-                    >
-                      {price.icon}
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center">
+                      <img
+                        src={
+                          price.symbol === "ckBTC"
+                            ? "https://cdn.pixabay.com/photo/2017/03/12/02/57/bitcoin-2136339_640.png"
+                            : price.symbol === "ckETH"
+                              ? "https://icon2.cleanpng.com/20180621/ltf/kisspng-ethereum-blockchain-bitcoin-logo-see-you-there-5b2b2447696084.9131561015295539914316.jpg"
+                              : "https://img.freepik.com/premium-psd/tether-coin-logo-cryptocurrency-high-resolution-3d-render-transparant_513203-250.jpg"
+                        }
+                        alt={price.name}
+                        className="w-full h-full object-cover rounded-xl"
+                      />
                     </div>
                     <div>
                       <p className="font-bold text-white">{price.symbol}</p>
