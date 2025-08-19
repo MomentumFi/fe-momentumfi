@@ -17,7 +17,7 @@ interface PlugWallet {
     symbol?: string
 }
 
-export default function ConnectPlug() {
+export default function ConnectPlug({ onBalanceUpdate }: { onBalanceUpdate?: (balance: number) => void }) {
 
     const ICP_LEDGER_ID = "ryjl3-tyaaa-aaaaa-aaaba-cai" as const; // ICP Ledger (mainnet)
     type PlugAny = any; // supaya cepat, bisa diketikkan lebih rapi nanti
@@ -109,6 +109,10 @@ export default function ConnectPlug() {
                     console.error("Auto fetch balance fail:", e);
                 }
                 setConnectedWallet({ accountId, principalId, balanceICP, symbol: "ICP" });
+                // Kirim balance ke parent melalui callback
+                if (onBalanceUpdate) {
+                    onBalanceUpdate(balanceICP);
+                }
             }
         };
         checkConnection();
@@ -151,6 +155,10 @@ export default function ConnectPlug() {
                 balanceICP: amount,
                 symbol,
             });
+            // Kirim balance ke parent melalui callback
+            if (onBalanceUpdate) {
+                onBalanceUpdate(amount);
+            }
         } catch (error) {
             console.error("Failed to connect to Plug wallet:", error);
             alert("Failed to connect to Plug wallet");

@@ -29,6 +29,7 @@ import {
 
 export function Dashboard() {
   const [countdown, setCountdown] = useState(1847)
+  const [walletBalance, setWalletBalance] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -201,12 +202,18 @@ export function Dashboard() {
             </div>
             <div className="flex items-center space-x-3">
               <div className="text-right">
-                <p className="text-2xl font-bold text-white">$22,780</p>
+                <p className="text-2xl font-bold text-white">
+                  {walletBalance !== null ? `$${walletBalance.toLocaleString()}` : "Loading..."}
+                  <div style={{ display: 'none' }}>
+                    <ConnectPlug onBalanceUpdate={(balance) => setWalletBalance(balance)} />
+                  </div>
+                </p>
                 <p className="text-sm text-green-400 flex items-center">
                   <ArrowUpRight className="h-4 w-4 mr-1" />
                   +$1,234 (5.7%) today
                 </p>
               </div>
+
               <Button
                 variant="outline"
                 size="icon"
