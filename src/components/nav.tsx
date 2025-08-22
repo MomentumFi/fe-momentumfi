@@ -72,7 +72,7 @@ export default function Navigation() {
                         <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:w-fit lg:gap-6 lg:space-y-0 items-center justify-end">
                             {/* GitHub Icon */}
                             <a
-                                href="https://github.com/MomentumFi"
+                                href="https://github.com/orgs/MomentumFi/repositories"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="GitHub"
@@ -81,7 +81,7 @@ export default function Navigation() {
                                 <Github className="w-5 h-5 text-gray-300" />
                             </a>
                             {/* Docs Icon */}
-                            <Link href="https://github.com/MomentumFi" target="_blank" aria-label="Docs" className="rounded-full p-2 hover:bg-gray-700 transition-colors">
+                            <Link href="https://github.com/orgs/MomentumFi/repositories" target="_blank" aria-label="Docs" className="rounded-full p-2 hover:bg-gray-700 transition-colors">
                                 <Book className="w-5 h-5 text-gray-300" />
                             </Link>
                             {/* Toggle Dark Mode */}
