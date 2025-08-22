@@ -1,24 +1,23 @@
 "use client"
 
 import { motion } from "framer-motion"
-import DashboardPreview from "@/components/dashboard-preview"
-import { ScrollProgress } from '@/components/magicui/scroll-progress'
-import AnimatedGradient from "@/components/animated-gradien"
+import DashboardPreview from "@/app/home/_components/dashboard-preview"
+import { ScrollProgress } from '@/app/home/_components/scroll-progress'
+import AnimatedGradient from "@/app/home/_components/animated-gradien"
 import Link from "next/link"
-import LogoCloud from "@/components/logo-cloud"
-import Features2 from "@/components/features2"
-import HowItWorks from "@/components/how-it-works"
-import Stats2 from "@/components/stats2"
-import FAQ from "@/components/faq"
-import Footer2 from "@/components/footer2"
-import Navigation from "@/components/nav"
-import CtaSection from "@/components/cta-section"
-
-export default function HomePage() {
+import LogoCloud from "@/app/home/_components/logo-cloud"
+import Features2 from "@/app/home/_components/features2"
+import HowItWorks from "@/app/home/_components/how-it-works"
+import Stats2 from "@/app/home/_components/stats2"
+import FAQ from "@/app/home/_components/faq"
+import Footer2 from "@/app/home/_components/footer2"
+import CtaSection from "@/app/home/_components/cta-section"
+import { ArrowRight } from "lucide-react";
+export default function Home() {
 
     return (
         <>
-            <Navigation />
+            {/* <Navigation /> */}
             <ScrollProgress />
             <main className="relative min-h-screen flex items-center justify-center px-6">
                 <section>
@@ -71,18 +70,19 @@ export default function HomePage() {
                             </motion.p>
 
                             {/* CTA Button */}
-                            <motion.button
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 1.1 }}
-                                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300"
-                            >
-                                <Link href="/dashboard">
+                            <Link href="/dashboard">
+                                <motion.button
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 1.1 }}
+                                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 flex items-center justify-center"
+                                >
                                     Launch App
-                                </Link>
-                            </motion.button>
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </motion.button>
+                            </Link>
 
                             {/* Earn Effortlessly Text
                     <motion.div
@@ -119,6 +119,7 @@ export default function HomePage() {
                     >
                         <LogoCloud />
                     </motion.div>
+
                     <Features2 />
                     <HowItWorks />
                     <Stats2 />
@@ -126,7 +127,7 @@ export default function HomePage() {
                     <CtaSection />
                     <Footer2 />
                 </section >
-            </main>
+            </main >
         </>
 
     )

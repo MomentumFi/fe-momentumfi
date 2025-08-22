@@ -17,7 +17,7 @@ interface PlugWallet {
     symbol?: string
 }
 
-export default function ConnectPlug() {
+export default function ConnectPlug({ onBalanceUpdate }: { onBalanceUpdate?: (balance: number) => void }) {
 
     const ICP_LEDGER_ID = "ryjl3-tyaaa-aaaaa-aaaba-cai" as const; // ICP Ledger (mainnet)
     type PlugAny = any; // supaya cepat, bisa diketikkan lebih rapi nanti
@@ -91,7 +91,7 @@ export default function ConnectPlug() {
 
 
 
-    // ✅ Auto check connection when component mounts
+    // ✅ Hanya cek status wallet saat mount, tidak auto connect
     useEffect(() => {
         const checkConnection = async () => {
             const plug = (window as any)?.ic?.plug;
@@ -109,6 +109,10 @@ export default function ConnectPlug() {
                     console.error("Auto fetch balance fail:", e);
                 }
                 setConnectedWallet({ accountId, principalId, balanceICP, symbol: "ICP" });
+                // Kirim balance ke parent melalui callback
+                if (onBalanceUpdate) {
+                    onBalanceUpdate(balanceICP);
+                }
             }
         };
         checkConnection();
@@ -132,6 +136,7 @@ export default function ConnectPlug() {
             const plug = (window as any)?.ic?.plug;
             if (!plug) {
                 alert("Plug wallet not found. Please install the Plug extension.");
+                setIsConnecting(false);
                 return;
             }
 
@@ -141,19 +146,33 @@ export default function ConnectPlug() {
                 host: "https://icp0.io",
             });
 
-            const accountId = plug.accountId;
-            const principalId = plug.principalId;
-            const { amount, symbol } = await getIcpBalanceViaLedger(plug);
+            const isConnected = await plug.isConnected();
+            if (isConnected) {
+                let tries = 0;
+                while ((!plug.accountId || !plug.principalId) && tries < 10) {
+                    await new Promise(res => setTimeout(res, 200));
+                    tries++;
+                }
+                const accountId = plug.accountId;
+                const principalId = plug.principalId;
+                const { amount, symbol } = await getIcpBalanceViaLedger(plug);
 
-            setConnectedWallet({
-                accountId,
-                principalId,
-                balanceICP: amount,
-                symbol,
-            });
+                setConnectedWallet({
+                    accountId,
+                    principalId,
+                    balanceICP: amount,
+                    symbol,
+                });
+                // Kirim balance ke parent melalui callback
+                if (onBalanceUpdate) {
+                    onBalanceUpdate(amount);
+                }
+            } else {
+                alert("Failed to connect Plug wallet.");
+            }
         } catch (error) {
             console.error("Failed to connect to Plug wallet:", error);
-            alert("Failed to connect to Plug wallet");
+            alert("Error connecting Plug wallet.");
         } finally {
             setIsConnecting(false);
         }
