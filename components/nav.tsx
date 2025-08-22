@@ -1,55 +1,102 @@
 "use client"
 
-import { motion } from "framer-motion"
+
 import Link from "next/link"
-import { AuroraText } from "./magicui/aurora-text"
+import { usePathname } from "next/navigation"
+import { Sun, Moon, Book, Github } from "lucide-react"
+import { useTheme } from "next-themes"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import ConnectPlug from "./wallet/connect-wallet"
+
+const menuItems = [
+    { name: 'Home', href: '/home' },
+    { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Docs', href: '/docs' },
+]
 
 export default function Navigation() {
+    const { theme, setTheme } = useTheme()
+    const [scrolled, setScrolled] = useState(false)
+    const pathname = usePathname()
+
+    useEffect(() => {
+        const onScroll = () => {
+            setScrolled(window.scrollY > 40)
+        }
+        window.addEventListener('scroll', onScroll)
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
     return (
-        <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
-        >
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
-                {/* Logo */}
-                <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-                    <div className="text-2xl font-bold text-white flex items-center">
-                        <img src="/logo.png" alt="" className="w-20" />
-                        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                            MomentumFI
-                        </span>
-                    </div>
-                </motion.div>
-
-                {/* Navigation Links */}
-                <div className="hidden md:flex items-center space-x-8">
-                    <Link href="#features" className="text-gray-300 hover:text-white transition-colors">
-                        Features
-                    </Link>
-                    <Link href="#how-it-works" className="text-gray-300 hover:text-white transition-colors">
-                        How it works
-                    </Link>
-                    <Link href="#docs" className="text-gray-300 hover:text-white transition-colors">
-                        Docs
-                    </Link>
+        <header>
+            <nav className="fixed z-20 w-full pt-2">
+                <div className={`mx-auto max-w-7xl rounded-3xl px-6 transition-all duration-300 lg:px-12 ${scrolled ? 'bg-background/50 backdrop-blur-2xl' : ''}`}>
+                    <motion.div
+                        key={1}
+                        className={`relative flex flex-wrap items-center justify-between gap-6 py-3 duration-200 lg:gap-0 ${scrolled ? 'lg:py-4' : 'lg:py-6'}`}
+                    >
+                        <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
+                            <Link href="/" aria-label="home" className="flex items-center space-x-2">
+                                <div className="text-2xl font-bold text-white flex items-center">
+                                    <img src="/logo.png" alt="" className="w-20" />
+                                    {/* <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                        MomentumFI
+                                    </span> */}
+                                </div>
+                            </Link>
+                            {/* Menu mobile button bisa ditambah di sini jika ingin */}
+                            <div className="hidden lg:block items-center justify-between">
+                                <ul className="flex gap-8 text-sm">
+                                    {menuItems.map((item, index) => {
+                                        const isActive = pathname === item.href;
+                                        return (
+                                            <li key={index} className="relative group">
+                                                <Link
+                                                    href={item.href}
+                                                    className={`text-gray-300 hover:text-white transition-colors block duration-150 px-1`}
+                                                >
+                                                    <span className="relative">
+                                                        {item.name}
+                                                        <span
+                                                            className={`absolute left-0 -bottom-1 w-full h-[2px] bg-[#FDCC92] transition-transform origin-left duration-200 ${isActive ? 'scale-x-100' : 'scale-x-0'}`}
+                                                        />
+                                                    </span>
+                                                </Link>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:w-fit lg:gap-6 lg:space-y-0 items-center justify-end">
+                            {/* GitHub Icon */}
+                            <a
+                                href="https://github.com/MomentumFi"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="GitHub"
+                                className="rounded-full p-2 hover:bg-gray-700 transition-colors"
+                            >
+                                <Github className="w-5 h-5 text-gray-300" />
+                            </a>
+                            {/* Docs Icon */}
+                            <Link href="https://github.com/MomentumFi" target="_blank" aria-label="Docs" className="rounded-full p-2 hover:bg-gray-700 transition-colors">
+                                <Book className="w-5 h-5 text-gray-300" />
+                            </Link>
+                            {/* Toggle Dark Mode */}
+                            <button
+                                aria-label="Toggle Dark Mode"
+                                className="rounded-full p-2 hover:bg-gray-700 transition-colors"
+                                onClick={() => setTheme(theme === "" ? "" : "dark")}
+                            >
+                                <Moon className="w-5 h-5 text-gray-300" />
+                            </button>
+                            <ConnectPlug />
+                        </div>
+                    </motion.div>
                 </div>
-
-                {/* CTA Button */}
-                <motion.button
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.1 }}
-                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full text-white font-medium transition-colors"
-                >
-                    <Link href="/dashboard">
-                        Go to Dashboard
-                    </Link>
-                </motion.button>
-            </div>
-        </motion.nav>
+            </nav>
+        </header>
     )
 }
