@@ -12,6 +12,7 @@ import ConnectPlug from "./wallet/connect-wallet"
 const menuItems = [
     { name: 'Home', href: '/home' },
     { name: 'Dashboard', href: '/dashboard' },
+    // { name: 'Swap-Pro', href: '/swap-pro' },
     { name: 'Docs', href: '/docs' },
 ]
 

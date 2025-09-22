@@ -217,7 +217,6 @@ export default function ConnectPlug({ onBalanceUpdate }: { onBalanceUpdate?: (ba
                             <span className="text-white text-sm">{truncateAddress(connectedWallet.principalId)}</span>
                             <ChevronDown className="w-4 h-4 text-gray-400" />
                         </button>
-
                         {/* Wallet Dropdown */}
                         {isWalletDropdownOpen && (
                             <div className="absolute right-0 top-full mt-2 w-80 bg-slate-800 border border-slate-700 rounded-xl p-4 shadow-xl z-50">
@@ -225,7 +224,6 @@ export default function ConnectPlug({ onBalanceUpdate }: { onBalanceUpdate?: (ba
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center space-x-2">
                                         <img src="https://app.icpswap.com/images/connect/Plug.svg" alt="Plug Icon" className="w-10 h-10" />
-
                                         <span className="text-white font-medium">{truncateAddress(connectedWallet.principalId)}</span>
                                     </div>
                                     <button onClick={() => copyToClipboard(connectedWallet.principalId)}>
@@ -236,13 +234,14 @@ export default function ConnectPlug({ onBalanceUpdate }: { onBalanceUpdate?: (ba
                                     onClick={async () => {
                                         try {
                                             setIsRefreshing(true);
+                                            setTimeout(() => { }, 100); // force re-render for skeleton
                                             const plug = (window as any).ic.plug;
                                             const { amount } = await getIcpBalanceViaLedger(plug);
                                             setConnectedWallet((w) => (w ? { ...w, balanceICP: amount } : w));
                                         } catch (e) {
                                             console.error("Refresh balance error:", e);
                                         } finally {
-                                            setIsRefreshing(false);
+                                            setTimeout(() => setIsRefreshing(false), 600); // skeleton effect
                                         }
                                     }}
                                     disabled={isRefreshing}
@@ -264,7 +263,9 @@ export default function ConnectPlug({ onBalanceUpdate }: { onBalanceUpdate?: (ba
                                         )}
                                     </div>
                                     <div className="text-gray-400 text-sm">
-                                        {icpPrice
+                                        {isRefreshing ? (
+                                            <div className="h-4 w-24 mx-auto bg-gray-700 rounded animate-pulse" />
+                                        ) : icpPrice
                                             ? `≈ $${(connectedWallet.balanceICP * icpPrice).toFixed(2)}`
                                             : "Loading USD..."}
                                     </div>

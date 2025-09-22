@@ -5,6 +5,7 @@ import "@/styles/globals.css"
 import { ThemeProvider } from "next-themes"
 import AnimatedBackground from "@/components/background/animated-background"
 import Navigation from "@/components/nav"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Navigation />
           <AnimatedBackground />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
