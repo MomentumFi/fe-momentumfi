@@ -8,10 +8,13 @@ import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Connect from "./wallet/connect"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 const menuItems = [
     { name: 'Home', href: '/home' },
     { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Earn', href: '/earn' },
+    
     { name: 'Docs', href: '/docs' },
 ]
 

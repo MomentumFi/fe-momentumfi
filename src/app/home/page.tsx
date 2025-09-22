@@ -54,7 +54,7 @@ export default function Home() {
                                     transition={{ duration: 0.8, delay: 0.7 }}
                                     className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                                 >
-                                    for ckBTC Auto-Rebalancing.
+                                    for Auto-Rebalancing Portofolio.
                                 </motion.span>
                             </motion.h1>
 

@@ -1,13 +1,13 @@
 'use client';
 
-import '../../../styles/globals.css';
+import '../../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import type { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
 
-import { config } from '../../../config/wagmi';
+import { config, customThemeOptions } from '../../config/wagmi';
 
 const client = new QueryClient();
 
@@ -19,7 +19,11 @@ export default function Providers({ children }: ProvidersProps) {
     return (
         <WagmiProvider config={config}>
             <QueryClientProvider client={client}>
-                <RainbowKitProvider>
+                <RainbowKitProvider
+                    theme={darkTheme(customThemeOptions)}
+                    modalSize="wide"
+                    showRecentTransactions={false}
+                >
                     {children}
                 </RainbowKitProvider>
             </QueryClientProvider>

@@ -5,7 +5,7 @@ import "@/styles/globals.css"
 import AnimatedBackground from "@/components/background/animated-background"
 import Navigation from "@/components/nav"
 import Footer from "@/components/footer"
-import Providers from "@/components/wallet/provider/rainbow-provider"
+import Providers from "@/components/provider/rainbow-provider"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
