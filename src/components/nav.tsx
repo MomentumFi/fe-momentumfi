@@ -7,11 +7,14 @@ import { Sun, Moon, Book, Github } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import ConnectPlug from "./wallet/connect-wallet"
+import Connect from "./wallet/connect"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 const menuItems = [
     { name: 'Home', href: '/home' },
     { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Earn', href: '/earn' },
+    
     { name: 'Docs', href: '/docs' },
 ]
 
@@ -92,7 +95,7 @@ export default function Navigation() {
                             >
                                 <Moon className="w-5 h-5 text-gray-300" />
                             </button>
-                            <ConnectPlug />
+                            <Connect />
                         </div>
                     </motion.div>
                 </div>
