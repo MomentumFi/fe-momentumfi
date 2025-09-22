@@ -164,7 +164,7 @@ export default function Stats2() {
                         whileTap={{ scale: 0.95 }}
                         className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300"
                     >
-                        <Link href="https://internetcomputer.org/" target="_blank">
+                        <Link href="https://base.org/" target="_blank">
                             Join the Network
                         </Link>
                     </motion.button>
