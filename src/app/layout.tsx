@@ -11,8 +11,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MomentumFI - AI AgenT ckBTC",
-  description: "A modern Next.js starter with theme support",
+  title: "MomentumFI",
+  description: "A modern Next.js starter wi th theme support",
   icons: [{ rel: "icon", url: "/logo.png" }],
 }
 

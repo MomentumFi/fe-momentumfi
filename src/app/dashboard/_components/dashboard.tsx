@@ -12,7 +12,7 @@ import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import {
-  ArrowUpRight,
+  ArrowUpRight, 
   ArrowDownRight,
   Clock,
   CheckCircle,
